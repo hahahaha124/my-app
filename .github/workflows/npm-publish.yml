@@ -11,11 +11,10 @@ jobs:
       steps:
         - name: First step
           run: echo "step 1"
-
         - name: create
           run: touch job1.txt
         - name: verify2
-          run: ls-l
+          run: ls -l
 
   job2:
       name: job2
