@@ -14,6 +14,8 @@ jobs:
 
         - name: create
           run: touch job1.txt
+        - name: verify2
+          run: ls-l
 
   job2:
       name: job2
