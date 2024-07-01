@@ -1,29 +1,37 @@
 name: NextJS Pipeline
 
-on: 
+on:
   push:
     branches: ["master"]
-    
-jobs: 
+
+jobs:
   job1:
-      name: job1
-      runs-on: ubuntu-latest
-      steps:
-        - name: First step
-          run: echo "step 1"
-        - name: create
-          run: touch job1.txt
-        - name: verify2
-          run: ls -l
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step
+        run: echo "step 1"
+      - name: create
+        run: touch job1.txt
+      - name: verify2
+        run: ls -l
+      - uses: actions/upload-artifact@v4
+        with:
+          name: job1-file
+          path: job1.txt
 
   job2:
-      name: job2
-      runs-on: ubuntu-latest
-      steps:
-        - name: First step job2
-          run: echo "HEY" > job2.txt
-        - name: Verify
-          run: cat job2.txt
+    name: job2
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step job2
+        run: echo "HEY" > job2.txt
+      - name: Verify
+        run: cat job2.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: job2-file
+          path: job2.txt
 
   job3:
     name: job3
@@ -32,4 +40,8 @@ jobs:
     steps:
       - name: verifyy
         run: ls -l
-          
+      - name: download first file
+        uses: actions/download-artifact@v4
+        
+      - name: Display structure of downloaded files
+        run: cat job2.txt
