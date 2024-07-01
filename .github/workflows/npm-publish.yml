@@ -17,7 +17,7 @@ jobs:
         run: ls -l
       - uses: actions/upload-artifact@v4
         with:
-          name: job1-file
+          name: job1-file.txt
           path: job1.txt
 
   job2:
@@ -30,7 +30,7 @@ jobs:
         run: cat job2.txt
       - uses: actions/upload-artifact@v4
         with:
-          name: job2-file
+          name: job2-file.txt
           path: job2.txt
 
   job3:
@@ -44,4 +44,4 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: Display structure of downloaded files
-        run: ls -l
+        run: cat job1-file.txt
