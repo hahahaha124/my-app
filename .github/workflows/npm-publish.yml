@@ -44,4 +44,8 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: Display structure of downloaded files
-        run: cd job1-file | ls -l
+        run: ls -l
+      - name: go to dir
+        run: cd job1-file
+      - name: display contents
+        run: cat job1.txt
