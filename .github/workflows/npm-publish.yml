@@ -28,6 +28,8 @@ jobs:
           path: out
       - name: install netlify
         run: npm i -g netlify-cli
+      - name: link netlify
+        run: netlify link --id 1558809d-2494-4e00-be4f-072188734fed
       - name: deploy to netlify
         run: |
           netlify deploy --prod \
