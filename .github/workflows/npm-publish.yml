@@ -48,4 +48,4 @@ jobs:
       - name: go to dir
         run: cd job1-file
       - name: display contents
-        run: cat job1.txt
+        run: ls -l
